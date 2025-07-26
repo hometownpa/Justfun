@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomeTown Bank Pa - Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="menu-icon" id="menuIcon">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="greeting">
+                <h1 data-user-first-name="John">Hi, Erick</h1>
+            </div>
+        </header>
+
+        <section class="accounts-section">
+            <div class="accounts-header-row">
+                <h2>Accounts</h2>
+                <div class="view-all-link">
+                    <a href="/accounts">View all</a>
+                </div>
+            </div>
+            <div class="account-cards-container">
+                <div class="account-card">
+                    <div class="account-details">
+                        <p class="account-type">CHECKING</p>
+                        <p class="account-number">**** **** **** 5363</p>
+                    </div>
+                    <div class="account-balance">
+                        <p class="balance-amount">
+                            $ 650,000.75
+                        </p>
+                        <p class="balance-status">Available</p>
+                    </div>
+                </div>
+                <div class="account-card savings-account-card">
+                    <div class="account-details">
+                        <p class="account-type">SAVINGS</p>
+                        <p class="account-number">**** **** **** 5678</p>
+                    </div>
+                    <div class="account-balance">
+                        <p class="balance-amount">
+                            $ 40,050.00
+                        </p>
+                        <p class="balance-status">Available</p>
+                    </div>
+                </div>
+                </div>
+            <div class="account-pagination">
+            </div>
+        </section>
+
+        <section class="actions-section">
+            <div class="action-button" id="transferButton">
+                <i class="fas fa-exchange-alt"></i>
+                <p>Transfer</p>
+            </div>
+            <div class="action-button" id="depositButton">
+                <i class="fas fa-download"></i>
+                <p>Deposit</p>
+            </div>
+            <div class="action-button">
+                <i class="fas fa-dollar-sign"></i>
+                <p>Pay</p>
+            </div>
+            <div class="action-button" id="messageButton" onclick="window.location.href='/customer-service'">
+                <i class="fas fa-headset"></i> <p>Customer Service</p>
+            </div>
+        </section>
+
+        <section class="bank-cards-section">
+            <h2>My Cards</h2>
+            <div class="view-all-link">
+                <a href="/bank_cards" id="viewMyCardsButton"> <i class="fas fa-credit-card"></i> View My Card</a>
+            </div>
+            <div class="card-list-container" id="userCardList" style="display: none;">
+                <p class="loading-message" id="cardsLoadingMessage">No cards found. Go to "Manage All Cards" to add one.</p>
+            </div>
+        </section>
+
+        <section class="activity-section">
+            <div class="transactions-header">
+                <div class="transactions-header">
+                <h2>Transactions</h2>
+                <span class="more-options" onclick="window.location.href='/statements'">...</span></div>
+            <div class="transaction-list">
+                <div class="transaction-item">
+                    <div class="transaction-details">
+                        <span class="transaction-description">Wire Transfer</span>
+                        <span class="transaction-account">SAVINGS x5678</span>
+                    </div>
+                    <div class="transaction-amount-date">
+                        <span class="transaction-amount credit">
+                            + $ 40,050.00
+                        </span>
+                        <span class="transaction-date"></span>
+                    </div>
+                </div>
+                <div class="transaction-item">
+                    <div class="transaction-details">
+                        <span class="transaction-description">FGA Direct Deposit</span>
+                        <span class="transaction-account">CHECKING x5363</span>
+                    </div>
+                    <div class="transaction-amount-date">
+                        <span class="transaction-amount credit">
+                            + $ 660,000.75
+                        </span>
+                        <span class="transaction-date"></span>
+                    </div>
+                </div>
+                </div>
+                </div>
+            <button class="see-more-button" onclick="window.location.href='/statements'">See more</button>
+        </section>
+
+    </div>
+
+    <div class="transfer-modal-overlay" id="transferModalOverlay">
+        <div class="transfer-modal-content">
+            <h3>Choose Transfer Type</h3>
+            <div class="transfer-options-list">
+                <button class="transfer-option" data-transfer-type="Own Account" onclick="window.location.href='/transfer?type=own_account'">
+                    <i class="fas fa-wallet"></i> <p>Transfer to My Other Account</p>
+                </button>
+                <button class="transfer-option" data-transfer-type="Bank to Bank" onclick="window.location.href='/transfer?type=bank_to_bank'">
+                    <i class="fas fa-university"></i>
+                    <p>Bank to Bank Transfer</p>
+                </button>
+                <button class="transfer-option" data-transfer-type="ACH" onclick="window.location.href='/transfer?type=ach'">
+                    <i class="fas fa-exchange-alt"></i>
+                    <p>ACH Transfer</p>
+                </button>
+                <button class="transfer-option" data-transfer-type="Wire" onclick="window.location.href='/transfer?type=wire'">
+                    <i class="fas fa-ethernet"></i>
+                    <p>Wire Transfer</p>
+                </button>
+                <button class="transfer-option" data-transfer-type="International Bank" onclick="window.location.href='/transfer?type=international_bank'">
+                    <i class="fas fa-globe"></i>
+                    <p>International Bank Transfer</p>
+                </button>
+                <button class="transfer-option" data-transfer-type="Domestic Wire" onclick="window.location.href='/transfer?type=domestic_wire'">
+                    <i class="fas fa-home"></i>
+                    <p>Domestic Wire Transfer</p>
+                </button>
+            </div>
+            <button class="close-modal-button" id="closeTransferModal">Close</button>
+        </div>
+    </div>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <button class="close-sidebar-button" id="closeSidebarBtn">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="sidebar-profile">
+                <img src="/images/default-profile.png" alt="Profile Picture" class="sidebar-profile-pic">
+                <h3><span id="sidebarUserName">John Doe</span></h3>
+                <p><span id="sidebarUserEmail">john.doe@example.com</span></p>
+            </div>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="/dashboard" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li><a href="/accounts"><i class="fas fa-wallet"></i> Accounts</a></li>
+                <li><a href="/transfer"><i class="fas fa-exchange-alt"></i> Transfers</a></li>
+                <li><a href="/statements"><i class="fas fa-file-invoice"></i> Statements</a></li>
+                <li><a href="/profile"><i class="fas fa-user"></i> Profile</a></li>
+                <li><a href="/settings"><i class="fas fa-cog"></i> Settings</a></li>
+                <li><a href="/bank_cards"><i class="fas fa-credit-card"></i> Bank Cards</a></li>
+            </ul>
+        </nav>
+        <button class="logout-button" id="logoutButton" onclick="window.location.href='/logout'">
+            <i class="fas fa-sign-out-alt"></i> Logout
+        </button>
+    </div>
+
+    <div class="modal-overlay active" id="accountRestrictedModalOverlay">
+        <div class="modal-content">
+            <i class="fas fa-exclamation-triangle modal-icon"></i>
+            <h2>Account Restricted</h2>
+            <p>Your account is currently restricted due to an outstanding payment.</p>
+            <p>Please contact customer support immediately to resolve this issue and restore full access to your account.</p>
+            <button class="modal-button" onclick="window.location.href='customer-service.html'">Contact Support</button>
+<button class="modal-button-secondary" id="closeRestrictedModal" onclick="window.location.href='index.html'">Dismiss</button>
+        </div>
+    </div>
+
+    <script src="user.dashboard.js"></script>
+</body>
+</html>

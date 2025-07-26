@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Old Glory Bank Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5; /* Light gray background */
+        }
+        .bg-old-glory-blue {
+            background-color: #0b46a0; /* Deep blue for header */
+        }
+        .bg-old-glory-red {
+            background-color: #BF0A30; /* Red for accents */
+        }
+        /* Custom army blue color (changed to a lighter grey/green for the box as per the image) */
+        .bg-army-blue {
+            background-color: #d7d8cf; /* A shade of army green/blue, matching image */
+        }
+        /* Custom gradient for the account bar to mimic the image */
+        .account-bar-style {
+            position: relative;
+            width: 6px; /* Width of the bar */
+            height: 100%; /* Will be set by parent flex item */
+            margin-right: 12px;
+            border-radius: 9999px; /* Full rounded corners */
+            overflow: hidden;
+        }
+        .account-bar-style::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 25%; /* Top blue part */
+            background-color: #002D72;
+            border-top-left-radius: 9999px;
+            border-top-right-radius: 9999px;
+        }
+        .account-bar-style::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 25%; /* Bottom red part */
+            background-color: #BF0A30;
+            border-bottom-left-radius: 9999px;
+            border-bottom-right-radius: 9999px;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <div class="bg-white rounded-3xl shadow-xl overflow-hidden w-full max-w-md mx-auto my-8">
+        <div class="bg-old-glory-blue text-white p-4 pb-10 relative">
+            <div class="text-center mt-4">
+                <div class="flex items-center justify-center mb-2">
+                    <div class="w-10 h-10 mr-2 flex items-center justify-center">
+                        <img src="https://i.imgur.com/1PyS7nZ.png" alt="Old Glory Bank Logo" class="w-full h-full object-contain">
+                    </div>
+                    <h1 class="text-xl font-semibold">OLD GLORY BANK</h1>
+                </div>
+                <p class="text-sm text-white mb-5 font-bold">Good Morning, Holliskrepp LLC</p>
+                <div class="text-xs text-white space-y-1">
+                    <p>Account Number: <span class="font-medium">4000029472</span></p>
+                    <p>Routing Number: <span class="font-medium">103113441</span></p>
+                </div>
+            </div>
+            <div class="absolute top-full left-1/2 transform -translate-x-1/2 w-full bg-army-blue shadow-lg p-3 flex items-center justify-center space-x-2 text-blue-800">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                </svg>
+                <span class="font-medium text-sm">Budget and Planning Tools</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+            </div>
+        </div>
+
+        <div class="p-4 mt-16">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-sm font-semibold text-gray-600 uppercase">Goals</h2>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+            </div>
+            <div class="grid grid-cols-3 gap-4 text-center">
+                <div class="flex flex-col items-center">
+                    <div class="w-16 h-16 rounded-full border-2 border-green-500 flex items-center justify-center mb-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M19 5H5a2 2 0 00-2 2v3a2 2 0 012 2v3a2 2 0 002 2h12a2 2 0 002-2V7a2 2 0 00-2-2z"></path>
+                            <path d="M10 16v-2a2 2 0 114 0v2"></path>
+                            <path d="M7 21v-4"></path>
+                            <path d="M17 21v-4"></path>
+                        </svg>
+                    </div>
+                    <p class="text-xs font-medium text-gray-800">Rainy Day</p>
+                    <p class="text-xs text-gray-500">On track: 93%</p>
+                    <p class="text-xs text-gray-500">7 weeks</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="w-16 h-16 rounded-full border-2 border-green-500 flex items-center justify-center mb-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"></path>
+                            <circle cx="12" cy="13" r="4"></circle>
+                        </svg>
+                    </div>
+                    <p class="text-xs font-medium text-gray-800">Fun Money</p>
+                    <p class="text-xs text-gray-500">On track: 83%</p>
+                    <p class="text-xs text-gray-500">9 weeks</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="w-16 h-16 rounded-full border-2 border-green-500 flex items-center justify-center mb-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92V18a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2h10.08a6 6 0 015.92 5.92v.08a6 6 0 01-5.92 5.92H14"></path>
+                            <path d="M18 8l4-4"></path>
+                            <path d="M14 12l-4 4"></path>
+                        </svg>
+                    </div>
+                    <p class="text-xs font-medium text-gray-800">Vacation</p>
+                    <p class="text-xs text-gray-500">On track: 10%</p>
+                    <p class="text-xs text-gray-500">9 months</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-4">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-sm font-semibold text-gray-600 uppercase">Primary Accounts</h2>
+                <div class="flex items-center space-x-2 text-gray-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h.01M12 12h.01M19 12h.01" />
+                    </svg>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-sm p-4 mb-3 flex items-center">
+                <div class="account-bar-style h-16"></div>
+                <div class="flex-grow">
+                    <p class="text-sm font-semibold text-gray-800">Business Checking</p>
+                    <p class="text-xs text-gray-500">Available Balance</p>
+                    <p class="text-xs text-gray-500">Current Balance</p>
+                </div>
+                <div class="text-right">
+                    <p class="text-sm font-semibold text-gray-800">$16,280.00</p>
+                    <p class="text-xs text-gray-500">$16,280.00</p>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h.01M12 12h.01M19 12h.01" />
+                </svg>
+            </div>
+        </div>
+
+        <div class="p-4 pt-0">
+            <div class="bg-white rounded-xl shadow-sm p-4 mb-3 flex items-center">
+                <div class="account-bar-style h-16"></div>
+                <div class="flex-grow">
+                    <p class="text-sm font-semibold text-gray-800">Freedom Savings</p>
+                    <p class="text-xs text-gray-500">Available Balance</p>
+                    <p class="text-xs text-gray-500">Current Balance</p>
+                </div>
+                <div class="text-right">
+                    <p class="text-sm font-semibold text-gray-800">$100.00</p>
+                    <p class="text-xs text-gray-500">$100.83</p>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h.01M12 12h.01M19 12h.01" />
+                </svg>
+            </div>
+        </div>
+
+        <div class="flex justify-around items-center bg-white border-t border-gray-200 p-3 mt-4">
+            <div class="flex flex-col items-center text-old-glory-blue">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                </svg>
+                <span class="text-xs mt-1">Home</span>
+            </div>
+            <div class="flex flex-col items-center text-gray-400">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7l4-4m0 0l4 4m-4-4v18"/>
+                </svg>
+                <span class="text-xs mt-1">Transfer</span>
+            </div>
+            <div class="flex flex-col items-center text-gray-400">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+                </svg>
+                <span class="text-xs mt-1">Deposit Check</span>
+            </div>
+            <div class="flex flex-col items-center text-gray-400">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/>
+                </svg>
+                <span class="text-xs mt-1">Cash-in Deposit</span>
+            </div>
+            <div class="flex flex-col items-center text-gray-400">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+                <span class="text-xs mt-1">Menu</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

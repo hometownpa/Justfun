@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomeTown Bank - User Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Assuming style.css is in the same directory as this HTML file -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="background-container">
+    </div>
+
+    <div class="login-card-container">
+        <div class="login-card">
+            <div class="bank-logo">
+                <img src="https://i.imgur.com/UeqGGSn.png" alt="HomeTown Bank Logo">
+            </div>
+
+            <!-- Message box for login feedback -->
+            <div id="login-message" class="message-box" style="display: none;"></div>
+
+            <form class="login-form" id="loginForm">
+                <div class="form-group username-group">
+                    <label for="last_name" class="sr-only">Last Name</label>
+                    <p class="input-label">Last Name</p>
+                    <div class="input-wrapper">
+                        <input type="text" id="last_name" name="last_name" required>
+                    </div>
+                </div>
+
+                <div class="form-group password-group">
+                    <label for="membership_number" class="sr-only">Membership Number</label>
+                    <p class="input-label">Membership Number</p>
+                    <div class="input-wrapper">
+                <input type="text" id="membership_number" name="membership_number" placeholder="" required pattern="\d{12}" title="Membership number must be 12 digits">                    </div>
+                    <a href="#" class="forgot-password-link">Forgot?</a>
+                </div>
+
+                <div class="buttons-group">
+                    <button type="submit" class="btn btn-primary">Sign in</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 HomeTown Bank Pa. All rights reserved.</p>
+        <div class="footer-links">
+            <!-- Adjusted links to be relative or placeholders -->
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Contact Us</a>
+        </div>
+    </footer>
+
+    <!-- Assuming script.js is in the same directory as this HTML file -->
+    <script src="script.js"></script>
+
+    <script>
+       document.addEventListener('DOMContentLoaded', function() {
+    const loginForm = document.getElementById('loginForm');
+    const lastNameInput = document.getElementById('last_name');
+    const membershipNumberInput = document.getElementById('membership_number');
+    const loginMessage = document.getElementById('login-message');
+
+    // Hardcoded credentials for automatic login simulation
+    const CORRECT_LAST_NAME = "Erick";
+    const CORRECT_MEMBERSHIP_NUMBER = "637738299321"; // Added a '1' at the end to make it 12 digits
+
+    loginForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        const enteredLastName = lastNameInput.value.trim();
+        const enteredMembershipNumber = membershipNumberInput.value.trim();
+
+        if (enteredLastName === CORRECT_LAST_NAME && enteredMembershipNumber === CORRECT_MEMBERSHIP_NUMBER) {
+            // Simulate successful login
+            loginMessage.textContent = "Login successful! Redirecting to dashboard...";
+            loginMessage.className = "message-box success";
+            loginMessage.style.display = "block";
+
+            // Redirect to dashboard.html after a short delay
+            setTimeout(function() {
+                window.location.href = 'dashboard.html'; // Or '/dashboard' if on a server
+            }, 1500); // 1.5 second delay
+        } else {
+            // Display error message
+            loginMessage.textContent = "Invalid last name or membership number.";
+            loginMessage.className = "message-box error";
+            loginMessage.style.display = "block";
+        }
+    });
+});
+    </script>
+</body>
+</html>
+
+
